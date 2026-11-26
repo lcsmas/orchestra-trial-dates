@@ -35,3 +35,9 @@ test('invalid input returns null', () => {
   assert.strictEqual(relativeDays(undefined, '2024-03-10'), null);
   assert.strictEqual(relativeDays('2024-03-10', null), null);
 });
+
+test('years 0-99 are not mapped to 1900s (Date.UTC trap)', () => {
+  assert.strictEqual(relativeDays('0099-12-31', '0100-01-01'), 'tomorrow');
+  assert.strictEqual(relativeDays('0100-01-01', '0099-12-31'), 'yesterday');
+  assert.strictEqual(relativeDays('0050-03-01', '0050-03-03'), 'in 2 days');
+});
