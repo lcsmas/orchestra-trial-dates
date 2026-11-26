@@ -1,3 +1,4 @@
 'use strict';
-const { capitalize } = require('./util/strings');
-module.exports = { capitalize };
+const { capitalize, pad2 } = require('./util/strings');
+const { parseDate } = require('./date/parse');
+module.exports = { capitalize, pad2, parseDate };
