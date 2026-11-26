@@ -31,3 +31,9 @@ test('times=1 makes exactly one attempt', () => {
 test('rejects invalid times', () => {
   assert.throws(() => retry(() => 1, 0), RangeError);
 });
+
+test('rejects non-integer times and calls fn without arguments', () => {
+  assert.throws(() => retry(() => 1, 2.5), RangeError);
+  assert.throws(() => retry(() => 1, NaN), RangeError);
+  assert.strictEqual(retry((...a) => a.length, 1), 0);
+});
