@@ -1,3 +1,4 @@
 'use strict';
 const { capitalize } = require('./util/strings');
-module.exports = { capitalize };
+const { retry } = require('./util/retry');
+module.exports = { capitalize, retry };
