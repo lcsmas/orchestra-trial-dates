@@ -3,7 +3,12 @@ const { parseDate } = require('./parse');
 const { formatDate } = require('./format');
 
 const DAY_MS = 86400000;
-const toDay = ({ y, m, d }) => Math.round(Date.UTC(y, m - 1, d) / DAY_MS);
+// setUTCFullYear: Date.UTC maps years 0-99 to 1900-1999.
+const toDay = ({ y, m, d }) => {
+  const dt = new Date(0);
+  dt.setUTCFullYear(y, m - 1, d);
+  return Math.round(dt.getTime() / DAY_MS);
+};
 
 function relativeDays(from, to) {
   if (typeof from !== 'string' || typeof to !== 'string') return null;

@@ -33,3 +33,8 @@ test('relativeDays: invalid input returns null', () => {
   assert.strictEqual(relativeDays('2024-03-10', undefined), null);
   assert.strictEqual(relativeDays(null, null), null);
 });
+
+test('relativeDays: years below 100 are not mapped to 19xx', () => {
+  assert.strictEqual(relativeDays('0050-02-27', '0050-03-01'), 'in 2 days');
+  assert.strictEqual(relativeDays('0099-12-31', '0100-01-01'), 'tomorrow');
+});
