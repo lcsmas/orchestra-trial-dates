@@ -12,4 +12,7 @@ function capitalizeWords(s) {
   }
   return s.replace(/(^|\s)(\S)/g, (_, sep, ch) => sep + ch.toUpperCase());
 }
-module.exports = { capitalize, capitalizeWords };
+function pad2(n) {
+  return String(n).padStart(2, '0');
+}
+module.exports = { capitalize, capitalizeWords, pad2 };
