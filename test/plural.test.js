@@ -12,4 +12,8 @@ test('pluralize', () => {
   assert.strictEqual(pluralize('city', 2), 'cities');
   assert.strictEqual(pluralize('day', 2), 'days');
   assert.strictEqual(pluralize('toy', 5), 'toys');
+  assert.strictEqual(pluralize('CITY', 2), 'CITIES');
+  assert.strictEqual(pluralize('BOX', 2), 'BOXES');
+  assert.strictEqual(pluralize('CAT', 0), 'CATS');
+  assert.strictEqual(pluralize('City', 2), 'Cities');
 });
