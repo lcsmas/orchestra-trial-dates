@@ -1,3 +1,4 @@
 'use strict';
 const { capitalize } = require('./util/strings');
-module.exports = { capitalize };
+const { groupByMonth } = require('./date/group');
+module.exports = { capitalize, groupByMonth };
