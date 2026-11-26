@@ -1,3 +1,4 @@
 'use strict';
 const { capitalize } = require('./util/strings');
-module.exports = { capitalize };
+const { clamp } = require('./util/math');
+module.exports = { capitalize, clamp };
