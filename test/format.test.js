@@ -15,3 +15,8 @@ test('formatDate throws on unknown fmt', () => {
   assert.throws(() => formatDate({ y: 2024, m: 1, d: 1 }, 'MM/DD/YYYY'));
   assert.throws(() => formatDate({ y: 2024, m: 1, d: 1 }));
 });
+
+test('formatDate round-trips parseDate output', () => {
+  const { parseDate } = require('../src');
+  assert.strictEqual(formatDate(parseDate('2024-02-29'), 'DD/MM/YYYY'), '29/02/2024');
+});
