@@ -1,4 +1,4 @@
 'use strict';
-const { capitalize } = require('./util/strings');
+const { capitalize, slugify } = require('./util/strings');
 const { pluralize } = require('./util/plural');
-module.exports = { capitalize, pluralize };
+module.exports = { capitalize, slugify, pluralize };
