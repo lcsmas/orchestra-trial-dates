@@ -19,4 +19,14 @@ function capitalizeWords(str) {
   }
   return str.replace(/(^|\s)(\S)/g, (_, sp, ch) => sp + ch.toUpperCase());
 }
-module.exports = { capitalize, capitalizeWords };
+
+function slugify(s) {
+  if (typeof s !== 'string') return '';
+  return s
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+module.exports = { capitalize, capitalizeWords, slugify };
