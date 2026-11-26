@@ -3,4 +3,7 @@ function capitalize(s) {
   if (typeof s !== 'string' || s === '') return '';
   return s[0].toUpperCase() + s.slice(1);
 }
-module.exports = { capitalize };
+function pad2(n) {
+  return String(n).padStart(2, '0');
+}
+module.exports = { capitalize, pad2 };
