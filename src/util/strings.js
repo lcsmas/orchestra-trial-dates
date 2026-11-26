@@ -12,7 +12,16 @@ function capitalizeWords(s) {
   }
   return s.replace(/(^|\s)(\S)/g, (_, sep, ch) => sep + ch.toUpperCase());
 }
+function slugify(s) {
+  if (typeof s !== 'string') return '';
+  return s
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
 function pad2(n) {
   return String(n).padStart(2, '0');
 }
-module.exports = { capitalize, capitalizeWords, pad2 };
+module.exports = { capitalize, capitalizeWords, slugify, pad2 };
