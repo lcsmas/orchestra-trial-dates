@@ -1,3 +1,4 @@
 'use strict';
 const { capitalize } = require('./util/strings');
-module.exports = { capitalize };
+const { relativeDays } = require('./date/relative');
+module.exports = { capitalize, relativeDays };
