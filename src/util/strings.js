@@ -29,4 +29,8 @@ function slugify(s) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
-module.exports = { capitalize, capitalizeWords, slugify };
+// Zero-pads an integer to at least 2 digits.
+function pad2(n) {
+  return String(n).padStart(2, '0');
+}
+module.exports = { capitalize, capitalizeWords, slugify, pad2 };
