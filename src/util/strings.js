@@ -7,9 +7,12 @@ function slugify(s) {
   if (typeof s !== 'string') return '';
   return s
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
-module.exports = { capitalize, slugify };
+function pad2(n) {
+  return String(n).padStart(2, '0');
+}
+module.exports = { capitalize, slugify, pad2 };
