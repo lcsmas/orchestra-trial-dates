@@ -1,5 +1,5 @@
 'use strict';
-const { capitalize, pad2 } = require('./util/strings');
+const { capitalize, capitalizeWords, pad2 } = require('./util/strings');
 const { parseDate } = require('./date/parse');
 const { formatDate } = require('./date/format');
-module.exports = { capitalize, pad2, parseDate, formatDate };
+module.exports = { capitalize, capitalizeWords, pad2, parseDate, formatDate };
