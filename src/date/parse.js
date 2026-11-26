@@ -1,5 +1,4 @@
 'use strict';
-const { pad2 } = require('../util/strings');
 
 function parseDate(str) {
   if (typeof str !== 'string') return null;
@@ -10,8 +9,6 @@ function parseDate(str) {
   const leap = (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
   const dim = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][mo - 1];
   if (d > dim) return null;
-  // pad2 round-trip guards the canonical zero-padded form
-  if (pad2(mo) !== m[2] || pad2(d) !== m[3]) return null;
   return { y, m: mo, d };
 }
 
